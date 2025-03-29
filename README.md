@@ -22,3 +22,9 @@ Tais ações incluem:
 - A devolução do troco (se houver) do cliente através da dedução do preço do produto do valor total em crédito;
 - As operações de resultado negativo, isto é, que tragam como consequência uma resposta negativa do sistema, de incapacidade de obtenção do produto.
 
+
+## Mockup da aplicação front-end
+
+O desenho abaixo representa a estrutura aproximada da aparência do front-end:
+
+![alt text](image.png)
