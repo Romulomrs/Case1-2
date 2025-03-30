@@ -1,11 +1,21 @@
+.image-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 
+.image-button:hover {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8); /* Aura dourada */
+  border-radius: 10px;
+  animation: glow 1s infinite alternate; /* Animação do brilho */
+}
 
-.Doritos {
-  width: 7%;
-  height: auto;
-  object-fit: contain;
-  position: absolute;  /* Posiciona a imagem de forma absoluta */
-  top: 30%;            /* Coloca a imagem no meio da tela */
-  left: 92%;           /* Coloca a imagem no meio da tela */
-  transform: translate(-50%, -50%); /* Ajusta a posição para centralizar a imagem */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 20px 8px rgba(255, 215, 0, 1);
+  }
 }

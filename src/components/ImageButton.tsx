@@ -3,17 +3,20 @@ import React from 'react';
 interface ImageButtonProps {
   src: string;
   alt: string;
-  onClick?: () => void;
-  style?: React.CSSProperties; // Permite passar estilos inline
+  onClick: () => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-const ImageButton: React.FC<ImageButtonProps> = ({ src, alt, onClick, style }) => {
+const ImageButton: React.FC<ImageButtonProps> = ({ src, alt, onClick, className, style }) => {
   return (
     <img 
       src={src} 
       alt={alt} 
       onClick={onClick} 
-      style={{ cursor: 'pointer', ...style }} // Garante que o botão tenha um cursor de clique
+      className={className} 
+      style={style} 
+      tabIndex={0}  // Permite receber foco ao pressionar TAB
     />
   );
 };
