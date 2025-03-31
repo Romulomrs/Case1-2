@@ -27,24 +27,30 @@ const Vending_Machine: React.FC = () => {
         key={product.reference}
         identifier={product.reference}
         price={product.price}
-        onClick={() => handleProductClick(product.reference)}
+        totalMoney={balance}
+        
       />
       <Product
         key={product.reference}
         identifier={product.reference}
         price={product.price}
-        onClick={() => handleProductClick(product.reference)}
+        totalMoney={balance}
       />
       <Product
         key={product.reference}
         identifier={product.reference}
         price={product.price}
-        onClick={() => handleProductClick(product.reference)}
+        totalMoney={balance}
+
       />
       </div>
       
     )
   })
+
+  function productAlert(product: {reference: string, price: number}) {
+    alert(`Você retirou o produto ${selectedProduct.toUpperCase()}! Receba R$${balance - product.price}.00 de troco.`);
+  }
 
   const handleProductClick = (reference: string) => {
     setSelectedProduct(reference);
@@ -61,8 +67,8 @@ const Vending_Machine: React.FC = () => {
     switch (selectedProduct) {
       case 'a':
         if (balance >= productsList[0].price) {
-          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
-          setBalance((prevBalance) => prevBalance - productsList[0].price);
+          productAlert(productsList[0]);
+          setBalance(0);
           setSelectedProduct('');
         } else {
           alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
@@ -71,8 +77,8 @@ const Vending_Machine: React.FC = () => {
       
       case 'b':
         if (balance >= productsList[1].price) {
-          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
-          setBalance((prevBalance) => prevBalance - productsList[1].price);
+          productAlert(productsList[1]);
+          setBalance(0);
           setSelectedProduct('');
         } else {
           alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
@@ -82,8 +88,8 @@ const Vending_Machine: React.FC = () => {
 
       case 'c':
         if (balance >= productsList[2].price) {
-          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
-          setBalance((prevBalance) => prevBalance - productsList[2].price);
+          productAlert(productsList[2]);          
+          setBalance(0);
           setSelectedProduct('');
         } else {
           alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
