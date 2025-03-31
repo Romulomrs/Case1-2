@@ -1,0 +1,29 @@
+.button {
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    height: 20px;
+    transition: 0.2s;
+    width: 20px;
+}
+
+.button:hover {
+    background-color: #ccc;
+}
+
+.greenColor  {
+    background-color: green;
+    color: aliceblue;
+}
+
+.redColor  {
+    background-color: red;
+    color: aliceblue;
+}
+
+.blueColor  {
+    background-color: blue;
+    color: aliceblue;
+}

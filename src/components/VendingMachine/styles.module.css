@@ -8,24 +8,51 @@
 }
 
 #machineBody    {
-    background-color: #f0f0f0;
+    background-color: #adc5fc;
     border: 2px solid #ccc;
     border-radius: 10px;
-    width: 450px;
+    display: flex;
+    flex-direction: row;
+    width: 440px;
     height: 600px;
+    gap: 15px;
     position: relative;
+}
+
+#machineControls    {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px ;
+    margin-top: 20px;
+}
+
+#productOutput  {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
 }
 
 #machineGlass   {
     background-color: rgba(104, 104, 104, 0.367);
     border: 2px solid #ccc;
     border-radius: 10px;
-    width: 70%;
+    width: 65%;
     height: 80%;
-    position: absolute;
     margin-left: 20px;
     margin-top: 20px;
     z-index: 1;
+}
+
+#buttonsArea    {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 #moneyBills {
