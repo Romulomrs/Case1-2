@@ -48,12 +48,15 @@ const Vending_Machine: React.FC = () => {
     )
   })
 
-  function productAlert(product: {reference: string, price: number}) {
+  const productAlert = (product: {reference: string, price: number}) => {
     alert(`Você retirou o produto ${selectedProduct.toUpperCase()}! Receba R$${balance - product.price}.00 de troco.`);
   }
 
-  const handleProductClick = (reference: string) => {
-    setSelectedProduct(reference);
+  const handleProductClick = (product: {reference: string, price: number}) => {
+    if (balance >= product.price) {
+      setSelectedProduct(product.reference);
+    }
+    else alert(`Seu saldo é insuficiente para selecioinar o produto ${product.reference.toUpperCase()}.`);
   };
 
   const handleMoneyClick = (value: number) => {
@@ -115,9 +118,9 @@ const Vending_Machine: React.FC = () => {
             Orson Mills' Vending Machines
           </span>
           <div id={styles.buttonsArea}>
-            <MachineButton value='a' onClick={() => handleProductClick('a')} />
-            <MachineButton value='b' onClick={() => handleProductClick('b')} />
-            <MachineButton value='c' onClick={() => handleProductClick('c')} />
+            <MachineButton value='a' onClick={() => handleProductClick(productsList[0])} />
+            <MachineButton value='b' onClick={() => handleProductClick(productsList[1])} />
+            <MachineButton value='c' onClick={() => handleProductClick(productsList[2])} />
           </div>
           <span id={styles.balance}>
               {`SALDO: R$${balance}.00`}
