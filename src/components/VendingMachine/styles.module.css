@@ -68,3 +68,15 @@
     align-items: center;
     gap: 30px;
 }
+
+#balance    {
+    background-color: #003e0f;
+    font-size: 14px;
+    color: lime;
+    font-weight: bold;
+    width: 95px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

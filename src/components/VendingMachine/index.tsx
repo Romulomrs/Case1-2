@@ -43,6 +43,9 @@ const Vending_Machine: React.FC = () => {
             <MachineButton value='b' onClick={() => handleProductClick('b')} />
             <MachineButton value='c' onClick={() => handleProductClick('c')} />
           </div>
+          <span id={styles.balance}>
+              {`TOTAL: R$${balance}`}
+          </span>
         </div>
       </div>
 
