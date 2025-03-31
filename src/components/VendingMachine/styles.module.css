@@ -37,9 +37,15 @@
 }
 
 #machineGlass   {
+    align-items: center;
     background-color: rgba(104, 104, 104, 0.367);
     border: 2px solid #ccc;
     border-radius: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
     width: 65%;
     height: 80%;
     margin-left: 20px;

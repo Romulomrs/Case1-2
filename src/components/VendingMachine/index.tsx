@@ -28,6 +28,12 @@ const Vending_Machine: React.FC = () => {
           <Product identifier='a' price={1} />
           <Product identifier='b' price={2} />
           <Product identifier='c' price={3} />
+          <Product identifier='a' price={1} />
+          <Product identifier='b' price={2} />
+          <Product identifier='c' price={3} />
+          <Product identifier='a' price={1} />
+          <Product identifier='b' price={2} />
+          <Product identifier='c' price={3} />
         </div>
         <div id={styles.machineControls}>
           <span id={styles.productOutput}>
