@@ -6,7 +6,45 @@ import Product from '../Product';
 
 const Vending_Machine: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>('');
-  const [balance, addToBalance] = useState(0);
+  const [balance, setBalance] = useState(0);
+  const productsList = [{
+    reference: 'a',
+    price: 6,
+  },
+  {
+    reference: 'b',
+    price: 7,
+  },
+  {
+    reference: 'c',
+    price: 8,
+  }]
+
+  const products = productsList.map((product) => {
+    return (
+      <div className={styles.product} key={product.reference}>
+        <Product
+        key={product.reference}
+        identifier={product.reference}
+        price={product.price}
+        onClick={() => handleProductClick(product.reference)}
+      />
+      <Product
+        key={product.reference}
+        identifier={product.reference}
+        price={product.price}
+        onClick={() => handleProductClick(product.reference)}
+      />
+      <Product
+        key={product.reference}
+        identifier={product.reference}
+        price={product.price}
+        onClick={() => handleProductClick(product.reference)}
+      />
+      </div>
+      
+    )
+  })
 
   const handleProductClick = (reference: string) => {
     setSelectedProduct(reference);
@@ -15,25 +53,24 @@ const Vending_Machine: React.FC = () => {
 
   const handleMoneyClick = (value: number) => {
     if (balance < 30) {
-      addToBalance((prevBalance) => prevBalance + value);
+      setBalance((prevBalance) => prevBalance + value);
       alert(`Você adicionou ${value} reais! Seu saldo atual é de ${balance + value} reais.`);
     }
     else alert('Seu limite de crédito na máquina é de 30 reais!')
+  }
+
+  const handleExtractionClick = () => {
+    switch (selectedProduct) {
+
+
+    }
   }
 
   return (
     <section id={styles.vendingMachine}>
       <div id={styles.machineBody}>
         <div id={styles.machineGlass}>
-          <Product identifier='a' price={1} />
-          <Product identifier='b' price={2} />
-          <Product identifier='c' price={3} />
-          <Product identifier='a' price={1} />
-          <Product identifier='b' price={2} />
-          <Product identifier='c' price={3} />
-          <Product identifier='a' price={1} />
-          <Product identifier='b' price={2} />
-          <Product identifier='c' price={3} />
+          {products}
         </div>
         <div id={styles.machineControls}>
           <span id={styles.productOutput}>
@@ -46,6 +83,9 @@ const Vending_Machine: React.FC = () => {
           <span id={styles.balance}>
               {`TOTAL: R$${balance}`}
           </span>
+          <button id={styles.extraction}> 
+            RETIRAR
+          </button>
         </div>
       </div>
 

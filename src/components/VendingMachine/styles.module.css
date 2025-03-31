@@ -43,9 +43,9 @@
     border-radius: 10px;
     flex-wrap: wrap;
     display: flex;
-    gap: 20px;
+    gap: 40px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 65%;
     height: 80%;
     margin-left: 20px;
@@ -79,4 +79,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#extraction {
+    background-color: #94f039;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.product    {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
 }
