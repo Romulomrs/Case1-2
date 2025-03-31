@@ -1,22 +1,13 @@
 import styles from './styles.module.css';
-import { useState } from 'react';
-
 
 interface MoneyProps {
     value: number;
+    onClick?: () => void;
 }
 
-const Money: React.FC<MoneyProps> = ({value})  => {
-    const [balance, setBalance] = useState(0);
-
+const Money: React.FC<MoneyProps> = ({value, onClick})  => {
     return (
-        <span className={styles.span}
-            onClick={() => {
-                setBalance(balance + value);
-                alert(`Você adicionou ${value} reais! Seu saldo atual é de ${balance} reais.`);
-            }}
-        
-        >
+        <span className={styles.span} onClick={onClick}>
             <img src={`src/assets/dinheiro/${value}-real.png`} alt={`${value} Real`} className={styles.moneyBill} />
         </span>
     )
