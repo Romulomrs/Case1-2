@@ -48,21 +48,51 @@ const Vending_Machine: React.FC = () => {
 
   const handleProductClick = (reference: string) => {
     setSelectedProduct(reference);
-    alert(`Você selecionou o produto ${reference.toUpperCase()}! Clique nele para retirar.`);
   };
 
   const handleMoneyClick = (value: number) => {
     if (balance < 30) {
       setBalance((prevBalance) => prevBalance + value);
-      alert(`Você adicionou ${value} reais! Seu saldo atual é de ${balance + value} reais.`);
     }
     else alert('Seu limite de crédito na máquina é de 30 reais!')
   }
 
   const handleExtractionClick = () => {
     switch (selectedProduct) {
+      case 'a':
+        if (balance >= productsList[0].price) {
+          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
+          setBalance((prevBalance) => prevBalance - productsList[0].price);
+          setSelectedProduct('');
+        } else {
+          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+        }
+        break;
+      
+      case 'b':
+        if (balance >= productsList[1].price) {
+          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
+          setBalance((prevBalance) => prevBalance - productsList[1].price);
+          setSelectedProduct('');
+        } else {
+          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+        }
+        break;
+        
 
-
+      case 'c':
+        if (balance >= productsList[2].price) {
+          alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!`);
+          setBalance((prevBalance) => prevBalance - productsList[2].price);
+          setSelectedProduct('');
+        } else {
+          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+        }
+        break;
+      
+      default:
+        alert('Selecione um produto antes de retirar!');
+        break;
     }
   }
 
@@ -73,7 +103,10 @@ const Vending_Machine: React.FC = () => {
           {products}
         </div>
         <div id={styles.machineControls}>
-          <span id={styles.productOutput}>
+          {/* <span id={styles.productOutput}>
+          </span> */}
+          <span id={styles.machineInstructions}>
+            Orson Mills' Vending Machines
           </span>
           <div id={styles.buttonsArea}>
             <MachineButton value='a' onClick={() => handleProductClick('a')} />
@@ -81,9 +114,17 @@ const Vending_Machine: React.FC = () => {
             <MachineButton value='c' onClick={() => handleProductClick('c')} />
           </div>
           <span id={styles.balance}>
-              {`TOTAL: R$${balance}`}
+              {`SALDO: R$${balance}.00`}
           </span>
-          <button id={styles.extraction}> 
+          <span id={styles.selectedProduct}>
+            <p className={styles.text}>
+            {selectedProduct ? `SELECIONADO: ${selectedProduct.toUpperCase()}` : ''}
+            </p>
+            <p className={styles.text}>
+            {selectedProduct ? `TOTAL A PAGAR: R$${productsList.find(product => product.reference === selectedProduct)?.price}.00` : ''}
+            </p>
+          </span>
+          <button id={styles.extraction} onClick={handleExtractionClick}> 
             RETIRAR
           </button>
         </div>
