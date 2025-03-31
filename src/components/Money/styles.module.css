@@ -1,0 +1,16 @@
+.moneyBill  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.moneyBill:hover {
+    transform: scale(1.2);
+    transition: transform 0.4s;
+}

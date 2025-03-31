@@ -1,0 +1,37 @@
+#vendingMachine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+#machineBody    {
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 450px;
+    height: 600px;
+    position: relative;
+}
+
+#machineGlass   {
+    background-color: rgba(104, 104, 104, 0.367);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+#moneyBills {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
