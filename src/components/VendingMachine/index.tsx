@@ -39,9 +39,9 @@ const Vending_Machine: React.FC = () => {
           <span id={styles.productOutput}>
           </span>
           <div id={styles.buttonsArea}>
-            <MachineButton value='a' color='greenColor' onClick={() => handleProductClick('a')} />
-            <MachineButton value='b' color='redColor' onClick={() => handleProductClick('b')} />
-            <MachineButton value='c' color='blueColor' onClick={() => handleProductClick('c')} />
+            <MachineButton value='a' onClick={() => handleProductClick('a')} />
+            <MachineButton value='b' onClick={() => handleProductClick('b')} />
+            <MachineButton value='c' onClick={() => handleProductClick('c')} />
           </div>
         </div>
       </div>
