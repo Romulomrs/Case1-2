@@ -49,7 +49,7 @@ const Vending_Machine: React.FC = () => {
   })
 
   const productAlert = (product: {reference: string, price: number}) => {
-    alert(`Você retirou o produto ${selectedProduct.toUpperCase()}! Receba R$${balance - product.price}.00 de troco.`);
+    alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!${balance === product.price? "\n\nNão há troco." : `\n\Você recebeu R$${balance - product.price}.00 de troco.`}`);
   }
 
   const handleProductClick = (product: {reference: string, price: number}) => {
