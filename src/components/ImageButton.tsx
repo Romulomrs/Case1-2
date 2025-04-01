@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ImageButtonProps {
   src: string;
@@ -8,15 +8,21 @@ interface ImageButtonProps {
   style?: React.CSSProperties;
 }
 
-const ImageButton: React.FC<ImageButtonProps> = ({ src, alt, onClick, className, style }) => {
+const ImageButton: React.FC<ImageButtonProps> = ({
+  src,
+  alt,
+  onClick,
+  className,
+  style,
+}) => {
   return (
-    <img 
-      src={src} 
-      alt={alt} 
-      onClick={onClick} 
-      className={className} 
-      style={style} 
-      tabIndex={0}  // Permite receber foco ao pressionar TAB
+    <img
+      src={src}
+      alt={alt}
+      onClick={onClick}
+      className={className}
+      style={style}
+      tabIndex={0} // Permite receber foco ao pressionar TAB
     />
   );
 };

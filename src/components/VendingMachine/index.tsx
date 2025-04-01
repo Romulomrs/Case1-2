@@ -1,141 +1,165 @@
-import React, { useState } from 'react';
-import styles from './styles.module.css';
-import Money from '../Money';
-import MachineButton from '../MachineButton';
-import Product from '../Product';
+import React, { useState } from "react";
+import styles from "./styles.module.css";
+import Money from "../Money";
+import MachineButton from "../MachineButton";
+import Product from "../Product";
 
 const Vending_Machine: React.FC = () => {
-  const [selectedProduct, setSelectedProduct] = useState<string>('');
+  const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [balance, setBalance] = useState(0);
-  const productsList = [{
-    reference: 'a',
-    price: 6,
-  },
-  {
-    reference: 'b',
-    price: 7,
-  },
-  {
-    reference: 'c',
-    price: 8,
-  }]
+  const productsList = [
+    {
+      reference: "a",
+      price: 6,
+    },
+    {
+      reference: "b",
+      price: 7,
+    },
+    {
+      reference: "c",
+      price: 8,
+    },
+  ];
 
   const products = productsList.map((product) => {
     return (
       <div className={styles.product} key={product.reference}>
         <Product
-        key={product.reference}
-        identifier={product.reference}
-        price={product.price}
-        totalMoney={balance}
-        
-      />
-      <Product
-        key={product.reference}
-        identifier={product.reference}
-        price={product.price}
-        totalMoney={balance}
-      />
-      <Product
-        key={product.reference}
-        identifier={product.reference}
-        price={product.price}
-        totalMoney={balance}
-
-      />
+          key={product.reference}
+          identifier={product.reference}
+          price={product.price}
+          totalMoney={balance}
+        />
+        <Product
+          key={product.reference}
+          identifier={product.reference}
+          price={product.price}
+          totalMoney={balance}
+        />
+        <Product
+          key={product.reference}
+          identifier={product.reference}
+          price={product.price}
+          totalMoney={balance}
+        />
       </div>
-      
-    )
-  })
+    );
+  });
 
-  const productAlert = (product: {reference: string, price: number}) => {
-    alert(`Você retirou o produto ${selectedProduct.toUpperCase()}!${balance === product.price? "\n\nNão há troco." : `\n\Você recebeu R$${balance - product.price}.00 de troco.`}`);
-  }
+  const productAlert = (product: { reference: string; price: number }) => {
+    alert(
+      `Você retirou o produto ${selectedProduct.toUpperCase()}!${balance === product.price ? "\n\nNão há troco." : `\n\Você recebeu R$${balance - product.price}.00 de troco.`}`,
+    );
+  };
 
-  const handleProductClick = (product: {reference: string, price: number}) => {
+  const handleProductClick = (product: {
+    reference: string;
+    price: number;
+  }) => {
     if (balance >= product.price) {
       setSelectedProduct(product.reference);
-    }
-    else alert(`Seu saldo é insuficiente para selecioinar o produto ${product.reference.toUpperCase()}.`);
+    } else
+      alert(
+        `Seu saldo é insuficiente para selecionar o produto ${product.reference.toUpperCase()}.`,
+      );
   };
 
   const handleMoneyClick = (value: number) => {
     if (balance < 30) {
       setBalance((prevBalance) => prevBalance + value);
-    }
-    else alert('Seu limite de crédito na máquina é de 30 reais!')
-  }
+    } else alert("Seu limite de crédito na máquina é de 30 reais!");
+  };
 
   const handleExtractionClick = () => {
     switch (selectedProduct) {
-      case 'a':
+      case "a":
         if (balance >= productsList[0].price) {
           productAlert(productsList[0]);
           setBalance(0);
-          setSelectedProduct('');
+          setSelectedProduct("");
         } else {
-          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+          alert(
+            `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
+          );
         }
         break;
-      
-      case 'b':
+
+      case "b":
         if (balance >= productsList[1].price) {
           productAlert(productsList[1]);
           setBalance(0);
-          setSelectedProduct('');
+          setSelectedProduct("");
         } else {
-          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+          alert(
+            `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
+          );
         }
         break;
-        
 
-      case 'c':
+      case "c":
         if (balance >= productsList[2].price) {
-          productAlert(productsList[2]);          
+          productAlert(productsList[2]);
           setBalance(0);
-          setSelectedProduct('');
+          setSelectedProduct("");
         } else {
-          alert(`Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`);
+          alert(
+            `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
+          );
         }
         break;
-      
+
       default:
-        alert('Selecione um produto antes de retirar!');
+        alert("Selecione um produto antes de retirar!");
         break;
     }
-  }
+  };
 
   return (
     <section id={styles.vendingMachine}>
       <div id={styles.machineBody}>
-        <div id={styles.machineGlass}>
-          {products}
-        </div>
-        <div id={styles.machineControls}>
-          {/* <span id={styles.productOutput}>
+        <section id={styles.machineUpperPart}>
+          <div id={styles.machineGlass}>{products}</div>
+          <div id={styles.machineControls}>
+            {/* <span id={styles.productOutput}>
           </span> */}
-          <span id={styles.machineInstructions}>
-            Orson Mills' Vending Machines
-          </span>
-          <div id={styles.buttonsArea}>
-            <MachineButton value='a' onClick={() => handleProductClick(productsList[0])} />
-            <MachineButton value='b' onClick={() => handleProductClick(productsList[1])} />
-            <MachineButton value='c' onClick={() => handleProductClick(productsList[2])} />
+            <span id={styles.machineInstructions}>
+              Orson Mills' Vending Machines
+            </span>
+            <div id={styles.buttonsArea}>
+              <MachineButton
+                value="a"
+                onClick={() => handleProductClick(productsList[0])}
+              />
+              <MachineButton
+                value="b"
+                onClick={() => handleProductClick(productsList[1])}
+              />
+              <MachineButton
+                value="c"
+                onClick={() => handleProductClick(productsList[2])}
+              />
+            </div>
+            <span id={styles.balance}>{`SALDO: R$${balance}.00`}</span>
+            <span id={styles.selectedProduct}>
+              <p className={styles.text}>
+                {selectedProduct
+                  ? `SELECIONADO: ${selectedProduct.toUpperCase()}`
+                  : ""}
+              </p>
+              <p className={styles.text}>
+                {selectedProduct
+                  ? `TOTAL A PAGAR: R$${productsList.find((product) => product.reference === selectedProduct)?.price}.00`
+                  : ""}
+              </p>
+            </span>
+            <button id={styles.extraction} onClick={handleExtractionClick}>
+              RETIRAR
+            </button>
           </div>
-          <span id={styles.balance}>
-              {`SALDO: R$${balance}.00`}
-          </span>
-          <span id={styles.selectedProduct}>
-            <p className={styles.text}>
-            {selectedProduct ? `SELECIONADO: ${selectedProduct.toUpperCase()}` : ''}
-            </p>
-            <p className={styles.text}>
-            {selectedProduct ? `TOTAL A PAGAR: R$${productsList.find(product => product.reference === selectedProduct)?.price}.00` : ''}
-            </p>
-          </span>
-          <button id={styles.extraction} onClick={handleExtractionClick}> 
-            RETIRAR
-          </button>
+        </section>
+        <div id={styles.evacuation}>
+          
         </div>
       </div>
 

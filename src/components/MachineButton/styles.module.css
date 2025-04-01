@@ -1,29 +1,29 @@
 .button {
-    border-radius: 50%;
-    border: 1px solid black;
-    cursor: pointer;
-    font-size: 10px;
-    text-align: center;
-    height: 20px;
-    transition: 0.2s;
-    width: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+  height: 20px;
+  transition: 0.2s;
+  width: 20px;
 }
 
 .button:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .c {
-    background-color: orange;
-    color: aliceblue;
+  background-color: orange;
+  color: aliceblue;
 }
 
-.a  {
-    background-color: red;
-    color: aliceblue;
+.a {
+  background-color: red;
+  color: aliceblue;
 }
 
-.b  {
-    background-color: blue;
-    color: aliceblue;
+.b {
+  background-color: blue;
+  color: aliceblue;
 }
