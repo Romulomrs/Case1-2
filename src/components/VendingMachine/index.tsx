@@ -166,7 +166,7 @@ const Vending_Machine: React.FC = () => {
         </section>
         <div id={styles.evacuation}>
           {boughtProduct && (
-            <img id={styles.boughtProduct} src={`src/assets/produtos/produto_${boughtProduct}.png`} alt="" onClick={() => {
+            <img id={styles.boughtProduct} src={`./src/assets/produtos/produto_${boughtProduct}.png`} alt="" onClick={() => {
               setBoughtProduct('')
             }} />
           )}

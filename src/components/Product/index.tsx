@@ -19,7 +19,7 @@ const Product: React.FC<ProductProps> = ({
       onClick={onClick}
     >
       <img
-        src={`src/assets/produtos/produto_${identifier}.png`}
+        src={`./src/assets/produtos/produto_${identifier}.png`}
         alt={identifier}
         className={styles.productImage}
       />
