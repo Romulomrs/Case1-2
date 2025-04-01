@@ -7,6 +7,7 @@ import Product from "../Product";
 const Vending_Machine: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [balance, setBalance] = useState(0);
+  const [boughtProduct, setBoughtProduct] = useState<string>("");
   const productsList = [
     {
       reference: "a",
@@ -59,6 +60,7 @@ const Vending_Machine: React.FC = () => {
   }) => {
     if (balance >= product.price) {
       setSelectedProduct(product.reference);
+      setBoughtProduct('')
     } else
       alert(
         `Seu saldo é insuficiente para selecionar o produto ${product.reference.toUpperCase()}.`,
@@ -66,6 +68,7 @@ const Vending_Machine: React.FC = () => {
   };
 
   const handleMoneyClick = (value: number) => {
+    setBoughtProduct('')
     if (balance < 30) {
       setBalance((prevBalance) => prevBalance + value);
     } else alert("Seu limite de crédito na máquina é de 30 reais!");
@@ -78,6 +81,7 @@ const Vending_Machine: React.FC = () => {
           productAlert(productsList[0]);
           setBalance(0);
           setSelectedProduct("");
+          setBoughtProduct(`a`)
         } else {
           alert(
             `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
@@ -90,6 +94,7 @@ const Vending_Machine: React.FC = () => {
           productAlert(productsList[1]);
           setBalance(0);
           setSelectedProduct("");
+          setBoughtProduct(`b`)
         } else {
           alert(
             `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
@@ -102,6 +107,7 @@ const Vending_Machine: React.FC = () => {
           productAlert(productsList[2]);
           setBalance(0);
           setSelectedProduct("");
+          setBoughtProduct(`c`)          
         } else {
           alert(
             `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
@@ -159,7 +165,11 @@ const Vending_Machine: React.FC = () => {
           </div>
         </section>
         <div id={styles.evacuation}>
-          
+          {boughtProduct && (
+            <img id={styles.boughtProduct} src={`src/assets/produtos/produto_${boughtProduct}.png`} alt="" onClick={() => {
+              setBoughtProduct('')
+            }} />
+          )}
         </div>
       </div>
 
