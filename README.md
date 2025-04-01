@@ -28,3 +28,11 @@ Tais ações incluem:
 O desenho abaixo representa a estrutura aproximada da aparência do front-end:
 
 ![alt text](image.png)
+
+## Membros do Projeto
+- Davi Batista (823212282)
+- Rômulo Mendes (822161394)
+- Silas Rodrigues (82327338)
+- Mateus Idibal (824218817)
+- Gabriel Argoso (82413799)
+- Caique Andrade (823121611)
