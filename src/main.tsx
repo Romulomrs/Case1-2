@@ -16,8 +16,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/elevator",
-    element: <Elevator />
-  }
+    element: <Elevator />,
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(

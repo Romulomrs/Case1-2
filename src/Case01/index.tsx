@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import Money from "./components/Money";
 import MachineButton from "./components/MachineButton";
 import Product from "./components/Product";
-import Button from "../common/Button";
+import Header from "../common/Header";
 
 const Vending_Machine: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -124,14 +124,7 @@ const Vending_Machine: React.FC = () => {
 
   return (
     <section id={styles.vendingMachine}>
-      <section id={styles.header}>
-        <Button
-        color="black"
-        link="/"
-        text="Voltar para a Home"
-        hoveredButton={null}
-        />
-      </section>
+      <Header />
       <div id={styles.machineBody}>
         <section id={styles.machineUpperPart}>
           <div id={styles.machineGlass}>{products}</div>
