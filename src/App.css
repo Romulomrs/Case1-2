@@ -11,6 +11,12 @@
   animation: glow 1s infinite alternate; /* Animação do brilho */
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes glow {
   0% {
     box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.6);

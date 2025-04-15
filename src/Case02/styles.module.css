@@ -1,4 +1,5 @@
 #elevator {
+  background-color: #f0f8ff;
   display: flex;
   flex-direction: column;
   justify-content: center;
