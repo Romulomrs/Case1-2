@@ -1,8 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import VendingMachine from "./components/Case01/VendingMachine";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Main from "./components/common/Main";
+import Main from "./common/Main";
+import Vending_Machine from "./Case01";
+import Elevator from "./Case02";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +12,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/vending-machine",
-    element: <VendingMachine />,
+    element: <Vending_Machine />,
   },
+  {
+    path: "/elevator",
+    element: <Elevator />
+  }
 ]);
 
 createRoot(document.getElementById("root")!).render(

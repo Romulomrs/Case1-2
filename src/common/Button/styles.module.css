@@ -1,17 +1,3 @@
-#mainScreen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f8ff;
-}
-
-#nav {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
 .button {
   border: none;
   border-radius: 5px;
@@ -24,4 +10,9 @@
     0.3s,
     transform 0.3s;
   width: 100%;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s;
 }
