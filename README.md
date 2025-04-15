@@ -21,7 +21,7 @@ Deste modo, o autômato dá-se ao trabalho de permitir que somente se compile aq
 
 A figura abaixo representa o esquema lógico do autômato da máquina de doces, contendo os casos para as possíveis ações inputadas nesse sistema: 
 
-![alt text](automato_.jff.jpg)
+![alt text](image-1.png)
 
 Tais ações incluem:
 - A recepção das cédulas de R$1.00, R$2.00 e R$5.00;
