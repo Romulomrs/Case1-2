@@ -1,5 +1,5 @@
 import Header from "../common/Header";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 const Elevator: React.FC = () => {
   return (
