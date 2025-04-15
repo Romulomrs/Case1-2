@@ -1,9 +1,22 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./components/VendingMachine";
+import VendingMachine from "./components/VendingMachine";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<TelaInicial/>,
+  },
+    {
+      path: '/vending-machine',
+      element: <VendingMachine />,
+    },
+  ]);
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
