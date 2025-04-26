@@ -1,0 +1,20 @@
+#cabin{
+    background-color: gray;
+    width: 105px;
+    height: 95px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    transition: 0.5s;
+    z-index: -1;
+    left: 31px;
+}
+
+#door{
+    width: 50px;
+    height: 100%;
+    background-color:rgb(229, 255, 0);
+    transition: 0.5s;
+}
