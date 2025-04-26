@@ -51,9 +51,9 @@ A figura a seguir mostra a estrutura lógica do autômato utilizado como base pa
 
 
 ## Membros do Projeto <a name="members"></a>
-- Davi Batista (823212382)
-- Rômulo Mendes (822161394)
-- Silas Rodrigues (82327338)
+- [Davi Batista (RA: 823212382)](https://github.com/odavibatista)
+- [Rômulo Mendes (822161394)](https://github.com/Romulomrs)
+- [Silas Rodrigues (82327338)](https://github.com/SilasNR)
 - Mateus Idibal (824218817)
 - Gabriel Argoso (82413799)
 - Caique Andrade (823121611)
