@@ -1,0 +1,15 @@
+#btn{
+    background-color:gray;
+    width: 100px;
+    height: 100px;
+    float: right;
+    border: 3px rgb(241, 241, 241) solid;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+#btn:hover{
+    background-color: rgb(95, 95, 95);
+}

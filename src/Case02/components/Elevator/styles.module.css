@@ -1,0 +1,41 @@
+#tudo   {
+    padding: 20px;
+}
+
+#space{
+    float: left;
+    width:70%;
+    min-height:  calc(60vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    z-index: -1;
+}
+
+#controller{
+    padding:  10% 0px 10% 0px;
+    min-height:  calc(60vh);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(207, 207, 207);
+}
+
+
+#predio{
+    background-color: rgb(51, 44, 44);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    /*margin-bottom: 40px;*/
+    z-index: 1;
+    padding: 10px;
+    /*background-image: url("../../../public/7.png");*/
+    background-size: 100% 110%;
+    background-repeat: no-repeat;
+}
+
+#chao{
+    height: 200px;
+}

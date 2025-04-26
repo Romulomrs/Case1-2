@@ -1,6 +1,8 @@
-import "./Elevator.css"
-import "./Cabin.css"
+import styles from './styles.module.css'
 import { useState } from "react";
+import ElevatorButton from "../ElevatorButton";
+import Floor from "../Floor";
+import Cabin from "../Cabin";
 
 function Elevador() {
   let esperaBasica = 500;
@@ -74,6 +76,7 @@ function Elevador() {
   }
 
   let realy = false
+
   async function changePosition(selecionado: number) {
     realy = true;
 
@@ -119,32 +122,28 @@ function Elevador() {
   }
 
   return (
-    <>
-      <div id="tudo">
-        <div id="space">
-          <div id="predio">
-            <div id="cabin" style={{ top: positionY }}>
-              <div id="door" style={{ width: p }}></div>
-            </div>
+      <div id={styles.tudo}>
+        <div id={styles.space}>
+          <div id={styles.predio}>
+            <Cabin p={p} top={positionY} />
             <div>
-              <div id="f3" className="floor"></div>
-              <div id="f2" className="floor"></div>
-              <div id="f1" className="floor"></div>
-              <div id="T" className="floor"></div>
+              <Floor id="f3" />
+              <Floor id="f2" />
+              <Floor id="f1" />
+              <Floor id="T" />
             </div>
           </div>
-          <div id="chao"></div>
+          <div id={styles.chao}></div>
         </div>
-        <div id="controller">
-          <div id="btn" onClick={() => { fecharPorta(3) }}><h2>3</h2></div>
-          <div id="btn" onClick={() => { fecharPorta(2) }}><h2>2</h2></div>
-          <div id="btn" onClick={() => { fecharPorta(1) }}><h2>1</h2></div>
-          <div id="btn" onClick={() => { fecharPorta(0) }}><h2>T</h2></div>
-          <div id="btn" onClick={() => { abrirPorta() }}><h2>{`<|>`}</h2></div>
-          <div id="btn" onClick={() => { fecharPort() }}><h2>{`>|<`}</h2></div>
+        <div id={styles.controller}>
+          <ElevatorButton value="3" onClick={() =>  fecharPorta(3) } />
+          <ElevatorButton value="2" onClick={() =>  fecharPorta(2) } />
+          <ElevatorButton value="1" onClick={() =>  fecharPorta(1) } />
+          <ElevatorButton value="T" onClick={() =>  fecharPorta(0) } />
+          <ElevatorButton value="<|>" onClick={() =>  abrirPorta() } />
+          <ElevatorButton value=">|<" onClick={() =>  fecharPort() } />
         </div>
       </div>
-    </>
   )
 }
 

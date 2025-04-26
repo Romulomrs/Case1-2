@@ -1,0 +1,8 @@
+.floor{
+    border: 5px solid black ;
+    width: 500px;
+    height: 150px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
