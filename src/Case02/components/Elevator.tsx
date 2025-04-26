@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function Elevador() {
   let esperaBasica = 500;
-  
+
   let andar3 = 132;
   let andar2 = 291;
   let andar1 = 451;
@@ -23,16 +23,13 @@ function Elevador() {
   const [positionY, setPositionY] = useState(andar0);
 
   let porta = false;
-  //const [porta, setPorta] = useState(false);
   const [p, setP] = useState(100);
 
   async function mudarAdar(atual: number) {
     switch (atual) {
       case 0:
-        console.log("case 0 - " + atual);
         if (atual != currentFloor) {
           setPositionY(andar0);
-          console.log("espera depois de mudar Y");
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
@@ -41,10 +38,8 @@ function Elevador() {
 
         break;
       case 1:
-        console.log("case - " + atual);
         if (atual != currentFloor) {
           setPositionY(andar1);
-          console.log("espera depois de mudar Y");
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
@@ -53,10 +48,8 @@ function Elevador() {
 
         break;
       case 2:
-        console.log("case - " + atual);
         if (atual != currentFloor) {
           setPositionY(andar2);
-          console.log("espera depois de mudar Y");
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
@@ -65,10 +58,8 @@ function Elevador() {
 
         break;
       case 3:
-        console.log("case - " + atual);
         if (atual != currentFloor) {
           setPositionY(andar3);
-          console.log("espera depois de mudar Y");
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
@@ -88,35 +79,14 @@ function Elevador() {
 
       if (porta) {
         if (selecionado > currentFloor) {
-          console.log("subindo");
           mudarAdar(selecionado);
           realy = false;
-          // for (let i = currentFloor; i <= selecionado;) {
-          //   if (i != currentFloor) {
-          //     console.log("espera antes de subir 1");
-
-          //   } else { console.log("espera antes de subir quando for igual ao andar atual"); await resolveAfter2Seconds(esperaBasica); }
-          //   i++;
-          // }
 
 
         } else if (selecionado < currentFloor) {
-          console.log("descendo");
           mudarAdar(selecionado);
           realy = false;
-          // for (let i = currentFloor; i >= selecionado;) {
-          //   if (i != currentFloor) {
-          //     console.log("espera antes de descer 1");
-          //     await resolveAfter2Seconds(esperaTudo);
-          //   } else { console.log("espera antes de descer 1"); await resolveAfter2Seconds(esperaBasica); }
-          //   i--;
-          //   console.log("proximo valor de i = " + i);
-          // }
-        } else {
-          console.log("é o mesmo andar");
-        }
-      } else {
-        console.log("porta aberta !!");
+        } 
       }
   }
 
@@ -124,41 +94,32 @@ function Elevador() {
     if (!porta) {
       setOperation(false)
       setP(0);
-      console.log("espera fechar a porta");
       await resolveAfter2Seconds(500);
-      console.log("fechou");
       porta =true;
       setOperation(true);
       changePosition(selecionado);
     }
-    console.log("################################################################################################");
   }
   async function fecharPort() {
     if (operation) {
       setOperation(false)
       setP(0);
-      console.log("espera fechar a porta");
       await resolveAfter2Seconds(500);
-      console.log("fechou");
       porta =true;
       setOperation(true);
     }
-    console.log("################################################################################################");
   }
 
   async function abrirPorta() {
     setOperation(false)
     setP(100);
-    console.log("espera abrir a porta");
     await resolveAfter2Seconds(esperaBasica);
-    console.log("abriu");
     porta = false;
     setOperation(true);
   }
 
   return (
     <>
-      <div id="titulo">Projeto Elevador</div>
       <div id="tudo">
         <div id="space">
           <div id="predio">
