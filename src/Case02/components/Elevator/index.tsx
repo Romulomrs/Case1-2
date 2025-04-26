@@ -75,6 +75,7 @@ function Elevador() {
     }
   }
 
+  // @ts-ignore
   let realy = false
 
   async function changePosition(selecionado: number) {
