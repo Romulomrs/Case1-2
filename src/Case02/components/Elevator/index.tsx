@@ -5,7 +5,7 @@ import Floor from "../Floor";
 import Cabin from "../Cabin";
 
 function Elevador() {
-  let esperaBasica = 500;
+  let esperaBasica = 2000;
 
   let andar3 = 132;
   let andar2 = 291;
@@ -25,7 +25,8 @@ function Elevador() {
   const [positionY, setPositionY] = useState(andar0);
 
   let porta = false;
-  const [p, setP] = useState(100);
+  const [p, setP] = useState(0); // inicializa a porta fechada
+
 
   async function mudarAdar(atual: number) {
     switch (atual) {
@@ -115,12 +116,18 @@ function Elevador() {
   }
 
   async function abrirPorta() {
-    setOperation(false)
-    setP(100);
+    setOperation(false);
+    setP(100); // abre a porta
     await resolveAfter2Seconds(esperaBasica);
     porta = false;
     setOperation(true);
+  
+    // Espera 5 segundos e fecha a porta
+    setTimeout(() => {
+      fecharPort();
+    }, 3000);
   }
+  
 
   return (
       <div id={styles.tudo}>
