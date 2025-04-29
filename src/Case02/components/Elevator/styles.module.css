@@ -35,6 +35,36 @@
     background-size: 100% 110%;
     background-repeat: no-repeat;
 }
+#painel {
+    background-color: #111; /* Fundo escuro */
+    color: #ff0000; /* Cor vermelha para o texto, como um painel de LED */
+    font-family: 'Press Start 2P', cursive; /* Fonte digital */
+    font-size: 48px; /* Tamanho grande da fonte */
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 2px solid #ff0000; /* Borda vermelha para complementar */
+    box-shadow: 0 0 10px #ff0000; /* Sombras vermelhas para dar um efeito de brilho */
+  }
+  
+  @keyframes brilho {
+    0% {
+      text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    }
+    50% {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+    100% {
+      text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    }
+  }
+  
+  #painel {
+    animation: brilho 1.5s infinite alternate; /* Animação de brilho */
+  }
+  
 
 #chao{
     height: 200px;

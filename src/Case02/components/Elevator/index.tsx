@@ -135,6 +135,10 @@ function Elevador() {
       <div id={styles.tudo}>
         <div id={styles.space}>
           <div id={styles.predio}>
+          <div id={styles.painel}>
+            <span>{currentFloor}</span>
+            </div>
+            
             <Cabin p={p} top={positionY} />
             <div>
               <Floor id="f3" />
