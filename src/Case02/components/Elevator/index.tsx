@@ -27,7 +27,6 @@ function Elevador() {
   let porta = false;
   const [p, setP] = useState(0); // inicializa a porta fechada
 
-
   async function mudarAdar(atual: number) {
     switch (atual) {
       case 0:
@@ -36,9 +35,8 @@ function Elevador() {
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
-        setCurrentFloor(atual)
-        setOperation(true)
-
+        setCurrentFloor(atual);
+        setOperation(true);
         break;
       case 1:
         if (atual != currentFloor) {
@@ -46,9 +44,8 @@ function Elevador() {
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
-        setCurrentFloor(atual)
-        setOperation(true)
-
+        setCurrentFloor(atual);
+        setOperation(true);
         break;
       case 2:
         if (atual != currentFloor) {
@@ -56,9 +53,8 @@ function Elevador() {
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
-        setCurrentFloor(atual)
-        setOperation(true)
-
+        setCurrentFloor(atual);
+        setOperation(true);
         break;
       case 3:
         if (atual != currentFloor) {
@@ -66,22 +62,20 @@ function Elevador() {
           await resolveAfter2Seconds(esperaBasica);
           abrirPorta();
         }
-        setCurrentFloor(atual)
-        setOperation(true)
-
+        setCurrentFloor(atual);
+        setOperation(true);
         break;
-
       default:
         break;
     }
   }
 
   // @ts-ignore
-  let realy = false
+  let realy = false;
 
   async function changePosition(selecionado: number) {
     realy = true;
-  
+
     if (porta) {
       if (selecionado > currentFloor) {
         mudarAdar(selecionado);
@@ -95,24 +89,24 @@ function Elevador() {
       }
     }
   }
-  
 
-  async function fecharPorta( selecionado : number) {
+  async function fecharPorta(selecionado: number) {
     if (!porta) {
-      setOperation(false)
+      setOperation(false);
       setP(0);
       await resolveAfter2Seconds(500);
-      porta =true;
+      porta = true;
       setOperation(true);
       changePosition(selecionado);
     }
   }
+
   async function fecharPort() {
     if (operation) {
-      setOperation(false)
+      setOperation(false);
       setP(0);
       await resolveAfter2Seconds(500);
-      porta =true;
+      porta = true;
       setOperation(true);
     }
   }
@@ -123,43 +117,47 @@ function Elevador() {
     await resolveAfter2Seconds(esperaBasica);
     porta = false;
     setOperation(true);
-  
+
     // Espera 1 segundo e fecha a porta
     setTimeout(() => {
       fecharPort();
     }, 1000);
   }
-  
+
+  // Função para mostrar "T" ao invés de "0"
+  const getDisplayFloor = (floor: number) => {
+    if (floor === 0) return "T"; // Exibe "T" para o andar 0
+    return floor.toString();
+  };
 
   return (
-      <div id={styles.tudo}>
-        <div id={styles.space}>
-          <div id={styles.predio}>
+    <div id={styles.tudo}>
+      <div id={styles.space}>
+        <div id={styles.predio}>
           <div id={styles.painel}>
-            <span>{currentFloor}</span>
-            </div>
-            
-            <Cabin p={p} top={positionY} />
-            <div>
-              <Floor id="f3" />
-              <Floor id="f2" />
-              <Floor id="f1" />
-              <Floor id="T" />
-            </div>
+            <span>{getDisplayFloor(currentFloor)}</span> {/* Exibe "T" quando o andar for 0 */}
           </div>
-          <div id={styles.chao}></div>
+
+          <Cabin p={p} top={positionY} />
+          <div>
+            <Floor id="f3" />
+            <Floor id="f2" />
+            <Floor id="f1" />
+            <Floor id="T" />
+          </div>
         </div>
-        <div id={styles.controller}>
-          <ElevatorButton value="3" onClick={() =>  fecharPorta(3) } />
-          <ElevatorButton value="2" onClick={() =>  fecharPorta(2) } />
-          <ElevatorButton value="1" onClick={() =>  fecharPorta(1) } />
-          <ElevatorButton value="T" onClick={() =>  fecharPorta(0) } />
-          <ElevatorButton value="<|>" onClick={() =>  abrirPorta() } />
-          <ElevatorButton value=">|<" onClick={() =>  fecharPort() } />
-        </div>
+        <div id={styles.chao}></div>
       </div>
-  )
+      <div id={styles.controller}>
+        <ElevatorButton value="3" onClick={() => fecharPorta(3)} />
+        <ElevatorButton value="2" onClick={() => fecharPorta(2)} />
+        <ElevatorButton value="1" onClick={() => fecharPorta(1)} />
+        <ElevatorButton value="T" onClick={() => fecharPorta(0)} />
+        <ElevatorButton value="<|>" onClick={() => abrirPorta()} />
+        <ElevatorButton value=">|<" onClick={() => fecharPort()} />
+      </div>
+    </div>
+  );
 }
 
-
-export default Elevador
+export default Elevador;
