@@ -5,7 +5,7 @@ import Floor from "../Floor";
 import Cabin from "../Cabin";
 
 function Elevador() {
-  let esperaBasica = 2000;
+  let esperaBasica = 1000;
 
   let andar3 = 132;
   let andar2 = 291;
@@ -81,19 +81,21 @@ function Elevador() {
 
   async function changePosition(selecionado: number) {
     realy = true;
-
-      if (porta) {
-        if (selecionado > currentFloor) {
-          mudarAdar(selecionado);
-          realy = false;
-
-
-        } else if (selecionado < currentFloor) {
-          mudarAdar(selecionado);
-          realy = false;
-        } 
+  
+    if (porta) {
+      if (selecionado > currentFloor) {
+        mudarAdar(selecionado);
+        realy = false;
+      } else if (selecionado < currentFloor) {
+        mudarAdar(selecionado);
+        realy = false;
+      } else {
+        // Se já estiver no andar selecionado, abre a porta imediatamente
+        abrirPorta();
       }
+    }
   }
+  
 
   async function fecharPorta( selecionado : number) {
     if (!porta) {
@@ -122,10 +124,10 @@ function Elevador() {
     porta = false;
     setOperation(true);
   
-    // Espera 5 segundos e fecha a porta
+    // Espera 1 segundo e fecha a porta
     setTimeout(() => {
       fecharPort();
-    }, 3000);
+    }, 1000);
   }
   
 
