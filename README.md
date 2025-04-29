@@ -38,6 +38,7 @@ O desenho abaixo representa a estrutura aproximada da aparência do front-end:
 ![alt text](image.png)
 
 ## Case 02: Elevador <a name="elevator"></a>
+https://case1-2.vercel.app/
 
 Neste projeto, construiu-se um pequeno sistema para simular o funcionamento de um elevador em quatro andares, sendo um deles o térreo. Nesse sistema, há a necessidade do uso de memória para a guarda do estado atual e passado. Durante o percurso, o elevador poderá estar em diversos andares, tendo sempre que passar por um para chegar até o outro, e suas portas poderão estar sob os estados "ABERTAS" e "FECHADAS". O elevador somente é capaz de se movimentar com suas portas estando fechadas, de modo que é obrigatório que o sistema possua uma trava de segurança em suas tratativas para impedir que o elevador possa transitar de andar com elas abertas.
 
