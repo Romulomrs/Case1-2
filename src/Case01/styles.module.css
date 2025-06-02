@@ -1,5 +1,11 @@
+
+
+
 #vendingMachine {
-  background-color: #f0f8ff;
+  background-image: url("/public/assets/background/loja_doce_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,6 +13,7 @@
   min-height: 100vh;
   gap: 20px;
 }
+
 
 #machineUpperPart {
   display: flex;

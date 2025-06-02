@@ -1,6 +1,6 @@
 .moneyBill {
   display: flex;
-  justify-content: center;
+  justify-content: absolute;
   align-items: center;
   width: 100px;
   height: 50px;
