@@ -4,6 +4,8 @@ import Money from "./components/Money";
 import MachineButton from "./components/MachineButton";
 import Product from "./components/Product";
 import Header from "../common/Header";
+import FallingCandies from "./components/animacao/FallingCandies"; // ajuste o caminho conforme necessário
+
 
 const Vending_Machine: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -121,16 +123,15 @@ const Vending_Machine: React.FC = () => {
         break;
     }
   };
-
-  return (
+return (
+  <>
+    <FallingCandies />
     <section id={styles.vendingMachine}>
       <Header />
       <div id={styles.machineBody}>
         <section id={styles.machineUpperPart}>
           <div id={styles.machineGlass}>{products}</div>
           <div id={styles.machineControls}>
-            {/* <span id={styles.productOutput}>
-          </span> */}
             <span id={styles.machineInstructions}>
               Orson Mills' Vending Machines
             </span>
@@ -179,14 +180,14 @@ const Vending_Machine: React.FC = () => {
           )}
         </div>
       </div>
-
       <section id={styles.moneyBills}>
         <Money value={1} onClick={() => handleMoneyClick(1)} />
         <Money value={2} onClick={() => handleMoneyClick(2)} />
         <Money value={5} onClick={() => handleMoneyClick(5)} />
       </section>
     </section>
-  );
-};
+  </>
+);
+}
 
 export default Vending_Machine;
