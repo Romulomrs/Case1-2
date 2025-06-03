@@ -5,6 +5,8 @@ import MachineButton from "./components/MachineButton";
 import Product from "./components/Product";
 import Header from "../common/Header";
 import FallingCandies from "./components/animacao/FallingCandies"; // ajuste o caminho conforme necessário
+import { toast } from "react-toastify";
+
 
 
 const Vending_Machine: React.FC = () => {
@@ -52,7 +54,7 @@ const Vending_Machine: React.FC = () => {
   });
 
   const productAlert = (product: { reference: string; price: number }) => {
-    alert(
+    toast.success(
       `Você retirou o produto ${selectedProduct.toUpperCase()}!${balance === product.price ? "\n\nNão há troco." : `\n\Você recebeu R$${balance - product.price}.00 de troco.`}`,
     );
   };
@@ -65,7 +67,7 @@ const Vending_Machine: React.FC = () => {
       setSelectedProduct(product.reference);
       setBoughtProduct("");
     } else
-      alert(
+      toast.error(
         `Seu saldo é insuficiente para selecionar o produto ${product.reference.toUpperCase()}.`,
       );
   };
@@ -74,7 +76,7 @@ const Vending_Machine: React.FC = () => {
     setBoughtProduct("");
     if (balance < 30) {
       setBalance((prevBalance) => prevBalance + value);
-    } else alert("Seu limite de crédito na máquina é de 30 reais!");
+    } else toast.error("Seu limite de crédito na máquina é de 30 reais!");
   };
 
   const handleExtractionClick = () => {
@@ -86,7 +88,7 @@ const Vending_Machine: React.FC = () => {
           setSelectedProduct("");
           setBoughtProduct(`a`);
         } else {
-          alert(
+          toast.error(
             `Saldo insuficiente para retirar o produto ${selectedProduct.toUpperCase()}.`,
           );
         }
@@ -119,7 +121,7 @@ const Vending_Machine: React.FC = () => {
         break;
 
       default:
-        alert("Selecione um produto antes de retirar!");
+        toast.error("Selecione um produto antes de retirar!");
         break;
     }
   };
